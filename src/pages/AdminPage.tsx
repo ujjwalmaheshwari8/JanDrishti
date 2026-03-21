@@ -13,12 +13,12 @@ type Tab = typeof tabs[number];
 
 // Mock data
 const complaints = [
-  { id: 1, text: "Road potholes near Booth 103", category: "Infrastructure", status: "Open", priority: "High", booth: "103", date: "2026-03-18", citizen: "Ramesh K." },
-  { id: 2, text: "Water supply disruption Block A", category: "Water Supply", status: "In Progress", priority: "High", booth: "101", date: "2026-03-17", citizen: "Priya S." },
-  { id: 3, text: "Garbage not collected for 3 days", category: "Sanitation", status: "Open", priority: "Medium", booth: "202", date: "2026-03-17", citizen: "Amit V." },
-  { id: 4, text: "Street light not working", category: "Electricity", status: "Resolved", priority: "Low", booth: "301", date: "2026-03-16", citizen: "Sunita D." },
-  { id: 5, text: "Drainage overflow in ward 5", category: "Sanitation", status: "Open", priority: "High", booth: "103", date: "2026-03-15", citizen: "Manoj T." },
-  { id: 6, text: "Broken water pipe on main road", category: "Water Supply", status: "In Progress", priority: "High", booth: "201", date: "2026-03-15", citizen: "Kavita R." },
+  { id: 1, text: "Road potholes near Booth Subhash Nagar", category: "Infrastructure", status: "Open", priority: "High", booth: "Subhash Nagar", date: "2026-03-18", citizen: "Ramesh K." },
+  { id: 2, text: "Water supply disruption Prem Nagar", category: "Water Supply", status: "In Progress", priority: "High", booth: "Prem Nagar", date: "2026-03-17", citizen: "Priya S." },
+  { id: 3, text: "Garbage not collected for 3 days", category: "Sanitation", status: "Open", priority: "Medium", booth: "Izzatnagar", date: "2026-03-17", citizen: "Amit V." },
+  { id: 4, text: "Street light not working", category: "Electricity", status: "Resolved", priority: "Low", booth: "Nawabganj", date: "2026-03-16", citizen: "Sunita D." },
+  { id: 5, text: "Drainage overflow in CB Ganj", category: "Sanitation", status: "Open", priority: "High", booth: "CB Ganj", date: "2026-03-15", citizen: "Manoj T." },
+  { id: 6, text: "Broken water pipe on main road", category: "Water Supply", status: "In Progress", priority: "High", booth: "Delapeer", date:"2026-03-16", citizen: "Amit S." },
   { id: 7, text: "School building needs repair", category: "Education", status: "Open", priority: "Medium", booth: "302", date: "2026-03-14", citizen: "Deepak J." },
   { id: 8, text: "Health clinic understaffed", category: "Healthcare", status: "Resolved", priority: "Medium", booth: "201", date: "2026-03-13", citizen: "Neha P." },
 ];
@@ -170,11 +170,11 @@ const OverviewTab = () => {
         </h3>
         <div className="space-y-3">
           {[
-            { action: "New complaint filed", detail: "Road potholes near Booth 103", time: "2 hours ago", type: "complaint" },
-            { action: "Complaint resolved", detail: "Street light fixed at Booth 301", time: "5 hours ago", type: "resolved" },
+            { action: "New complaint filed", detail: "Road potholes near Booth Subhash Nagar", time: "2 hours ago", type: "complaint" },
+            { action: "Complaint resolved", detail: "Street light fixed at Booth Nawabganj", time: "5 hours ago", type: "resolved" },
             { action: "User login", detail: "Vikram Singh accessed admin panel", time: "2 hours ago", type: "user" },
             { action: "Status updated", detail: "Water supply issue moved to In Progress", time: "8 hours ago", type: "update" },
-            { action: "New booth added", detail: "Booth 303 registered in Block C", time: "1 day ago", type: "booth" },
+            { action: "New booth added", detail: "Fatehganj registered in Block C", time: "1 day ago", type: "booth" },
           ].map((activity, i) => (
             <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 border border-border">
               <div className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${

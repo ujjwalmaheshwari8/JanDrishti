@@ -6,15 +6,15 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 const boothLocations = [
-  { id: "101", lat: 25.4358, lng: 81.8463, name: "Booth 101", block: "A", issues: 12, status: "critical" },
-  { id: "102", lat: 25.4380, lng: 81.8500, name: "Booth 102", block: "A", issues: 8, status: "warning" },
-  { id: "103", lat: 25.4340, lng: 81.8520, name: "Booth 103", block: "A", issues: 15, status: "critical" },
-  { id: "201", lat: 25.4400, lng: 81.8450, name: "Booth 201", block: "B", issues: 6, status: "normal" },
-  { id: "202", lat: 25.4420, lng: 81.8480, name: "Booth 202", block: "B", issues: 10, status: "warning" },
-  { id: "203", lat: 25.4410, lng: 81.8530, name: "Booth 203", block: "B", issues: 9, status: "warning" },
-  { id: "301", lat: 25.4370, lng: 81.8560, name: "Booth 301", block: "C", issues: 4, status: "normal" },
-  { id: "302", lat: 25.4390, lng: 81.8590, name: "Booth 302", block: "C", issues: 7, status: "normal" },
-  { id: "303", lat: 25.4350, lng: 81.8600, name: "Booth 303", block: "C", issues: 11, status: "critical" },
+  { id: "101", lat: 28.3670, lng: 79.4150, name: "Civil Lines Booth", block: "A", issues: 12, status: "critical" },
+  { id: "102", lat: 28.3750, lng: 79.4350, name: "Izzatnagar Booth", block: "A", issues: 8, status: "warning" },
+  { id: "103", lat: 28.3600, lng: 79.4300, name: "Subhash Nagar Booth", block: "A", issues: 15, status: "critical" },
+  { id: "201", lat: 28.3720, lng: 79.4250, name: "Prem Nagar Booth", block: "B", issues: 6, status: "normal" },
+  { id: "202", lat: 28.3800, lng: 79.4400, name: "Delapeer Booth", block: "B", issues: 10, status: "warning" },
+  { id: "203", lat: 28.3300, lng: 79.4100, name: "Bhojipura Booth", block: "B", issues: 9, status: "warning" },
+  { id: "301", lat: 28.3500, lng: 79.4450, name: "Nawabganj Booth", block: "C", issues: 4, status: "normal" },
+  { id: "302", lat: 28.3900, lng: 79.4000, name: "CB Ganj Booth", block: "C", issues: 7, status: "normal" },
+  { id: "303", lat: 28.4020, lng: 79.4450, name: "Fatehganj Booth", block: "C", issues: 11, status: "critical" },
 ];
 
 const statusIcon = (s: string) => {
@@ -44,8 +44,8 @@ const MapPage = () => {
     if (!mapRef.current || mapInstance.current) return;
 
     const map = L.map(mapRef.current, {
-      center: [25.438, 81.852],
-      zoom: 15,
+      center: [28.3670, 79.4304],
+      zoom: 14,
       zoomControl: false,
     });
 

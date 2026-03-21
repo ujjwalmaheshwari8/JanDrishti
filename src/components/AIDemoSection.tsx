@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Sparkles, Loader2 } from "lucide-react";
 
 const sampleComplaints = [
-  "Roads are damaged near Booth 101.",
-  "Water supply problem in Block B.",
-  "Garbage collection not happening in ward 5.",
-  "Electricity outage in Booth 303 for 2 days.",
-  "New health clinic opened near Booth 201.",
+  "Roads are damaged in Civil Lines.",
+  "Water supply problem in Izzatnagar.",
+  "Garbage collection not happening in Prem Nagar.",
+  "Electricity outage in Nawabganj for 2 days.",
+  "New health clinic opened in CB Ganj.",
 ];
 
 type AnalysisResult = {
@@ -23,29 +23,38 @@ const analyzeComplaint = (text: string): AnalysisResult => {
   let sentiment = "Negative";
   let category = "General";
   let priority = "Medium";
-  let location = "Unknown";
-  let booth = "Unassigned";
+  let location = "Bareilly Central";
+  let booth = "General Area";
 
+  // 1. Logic for Sentiment
   if (lower.includes("opened") || lower.includes("new") || lower.includes("good")) {
     sentiment = "Positive";
     priority = "Low";
   }
 
+  // 2. Logic for Category
   if (lower.includes("road") || lower.includes("damaged")) category = "Infrastructure";
   else if (lower.includes("water") || lower.includes("supply")) category = "Water Supply";
   else if (lower.includes("garbage") || lower.includes("collection")) category = "Sanitation";
   else if (lower.includes("electricity") || lower.includes("outage")) category = "Electricity";
   else if (lower.includes("health") || lower.includes("clinic")) category = "Healthcare";
 
-  const boothMatch = text.match(/Booth\s*(\d+)/i);
-  if (boothMatch) {
-    booth = `Booth ${boothMatch[1]}`;
-    location = `Booth ${boothMatch[1]} Area`;
+  // 3. Logic for Bareilly Specific Locations
+  const locations = ["Civil Lines", "Izzatnagar", "Prem Nagar", "Subhash Nagar", "CB Ganj", "Delapeer", "Nawabganj", "Bhojipura", "Fatehganj"];
+  
+  const foundLocation = locations.find(loc => lower.includes(loc.toLowerCase()));
+
+  if (foundLocation) {
+    booth = foundLocation;
+    location = `${foundLocation} Area`;
+  } else {
+    // Fallback for numeric booths if any remain
+    const boothMatch = text.match(/Booth\s*(\d+)/i);
+    if (boothMatch) {
+      booth = `Booth ${boothMatch[1]}`;
+      location = `Booth ${boothMatch[1]} Area`;
+    }
   }
-  const blockMatch = text.match(/Block\s*([A-Z])/i);
-  if (blockMatch) location = `Block ${blockMatch[1]}`;
-  const wardMatch = text.match(/ward\s*(\d+)/i);
-  if (wardMatch) location = `Ward ${wardMatch[1]}`;
 
   if (lower.includes("outage") || lower.includes("damaged")) priority = "High";
 
@@ -90,7 +99,6 @@ const AIDemoSection = () => {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="card-glow rounded-xl p-6"
         >
-          {/* Sample chips */}
           <div className="flex flex-wrap gap-2 mb-4">
             {sampleComplaints.map((c) => (
               <button

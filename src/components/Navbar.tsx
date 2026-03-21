@@ -16,14 +16,33 @@ const Navbar = () => {
   return (
     <nav className="nav-glass fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto flex items-center justify-between h-14 px-4">
-        <Link to="/" className="flex items-center gap-2">
+        {/* <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-sm">JD</span>
           </div>
           <span className="font-semibold text-foreground">
             JanDrishti <span className="text-muted-foreground font-normal text-sm">Governance Intelligence</span>
           </span>
-        </Link>
+        </Link> */}
+
+        <Link to="/" className="flex items-center gap-3 group">
+  {/* The Icon: Changed to a classic framed "seal" look */}
+  <div className="w-10 h-10 rounded-md border-2 border-primary flex items-center justify-center bg-transparent group-hover:bg-primary transition-all duration-300">
+    <span className="text-primary group-hover:text-primary-foreground font-serif font-bold text-lg">
+      JD
+    </span>
+  </div>
+
+  {/* The Text: Classic serif with wide letter spacing */}
+  <div className="flex flex-col leading-tight">
+    <span className="text-xl font-serif font-bold tracking-[0.1em] text-foreground uppercase">
+      JanDrishti
+    </span>
+    <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-medium">
+      Governance Intelligence
+    </span>
+  </div>
+</Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">

@@ -23,23 +23,23 @@ const trendData = [
 ];
 
 const boothData = [
-  { booth: "101", issues: 12 },
-  { booth: "102", issues: 8 },
-  { booth: "103", issues: 15 },
-  { booth: "201", issues: 6 },
-  { booth: "202", issues: 10 },
-  { booth: "203", issues: 9 },
-  { booth: "301", issues: 4 },
-  { booth: "302", issues: 7 },
-  { booth: "303", issues: 11 },
+  { booth: "Civil Lines", issues: 12 },
+  { booth: "Izzatnagar", issues: 8 },
+  { booth: "Subhash Nagar", issues: 15 },
+  { booth: "Prem Nagar", issues: 6 },
+  { booth: "Delapeer", issues: 10 },
+  { booth: "Bhojipura", issues: 9 },
+  { booth: "Nawabganj", issues: 4 },
+  { booth: "CB Ganj", issues: 7 },
+  { booth: "Fatehganj", issues: 11 },
 ];
 
 const recentComplaints = [
-  { id: 1, text: "Road potholes near Booth 103", category: "Infrastructure", status: "Open", priority: "High", booth: "103" },
-  { id: 2, text: "Water supply disruption Block A", category: "Water Supply", status: "In Progress", priority: "High", booth: "101" },
-  { id: 3, text: "Garbage not collected for 3 days", category: "Sanitation", status: "Open", priority: "Medium", booth: "202" },
-  { id: 4, text: "Street light not working", category: "Electricity", status: "Resolved", priority: "Low", booth: "301" },
-  { id: 5, text: "Drainage overflow in ward 5", category: "Sanitation", status: "Open", priority: "High", booth: "103" },
+  { id: 1, text: "Road potholes near Booth Subhash Nagar", category: "Infrastructure", status: "Open", priority: "High", booth: "Subhash Nagar" },
+  { id: 2, text: "Water supply disruption Prem Nagar", category: "Water Supply", status: "In Progress", priority: "High", booth: "Prem Nagar" },
+  { id: 3, text: "Garbage not collected for 3 days", category: "Sanitation", status: "Open", priority: "Medium", booth: "Izzatnagar" },
+  { id: 4, text: "Street light not working", category: "Electricity", status: "Resolved", priority: "Low", booth: "Nawabganj" },
+  { id: 5, text: "Drainage overflow in CB Ganj", category: "Sanitation", status: "Open", priority: "High", booth: "CB Ganj" },
 ];
 
 const summaryCards = [
@@ -137,7 +137,18 @@ const Dashboard = () => {
                     ))}
                   </Pie>
                   <Tooltip
-                    contentStyle={{ background: "hsl(217, 33%, 17%)", border: "1px solid hsl(215, 28%, 25%)", borderRadius: "8px", color: "#fff", fontSize: 12 }}
+                    contentStyle={{
+                      background: "hsl(217, 33%, 17%)",
+                      border: "1px solid hsl(215, 28%, 25%)",
+                      borderRadius: "8px",
+                      padding: "8px"
+                    }}
+                    itemStyle={{
+                      color: "#ffffff",      // This forces the text to be white
+                      fontSize: "14px",     // Makes it easier to read
+                      fontWeight: "600"
+                    }}
+                    cursor={{ fill: 'transparent' }} // Removes any gray background highlight
                   />
                 </PieChart>
               </ResponsiveContainer>
@@ -167,7 +178,16 @@ const Dashboard = () => {
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={boothData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(215, 28%, 22%)" />
-                  <XAxis dataKey="booth" stroke="hsl(215, 20%, 65%)" fontSize={12} />
+                  {/* <XAxis dataKey="booth" stroke="hsl(215, 20%, 65%)" fontSize={12} /> */}
+                  <XAxis
+                    dataKey="booth"
+                    stroke="hsl(215, 20%, 65%)"
+                    fontSize={11}
+                    interval={0}        // This forces all names (Izzatnagar, etc.) to show
+                    angle={-45}         // Tilts them so they don't overlap
+                    textAnchor="end"    // Aligns the tilted text properly
+                    height={70}         // Adds space at the bottom so the names aren't cut off
+                  />
                   <YAxis stroke="hsl(215, 20%, 65%)" fontSize={12} />
                   <Tooltip
                     contentStyle={{ background: "hsl(217, 33%, 17%)", border: "1px solid hsl(215, 28%, 25%)", borderRadius: "8px", color: "#fff", fontSize: 12 }}
