@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 30 100% 50%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 22%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 30 100% 50%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 22%;
+    --input: 215 28% 22%;
+    --ring: 30 100% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 30 100% 50%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 28% 22%;
+    --sidebar-ring: 30 100% 50%;
+
+    /* Custom tokens */
+    --hero-gradient-from: 222 47% 15%;
+    --hero-gradient-to: 222 47% 8%;
+    --stats-bg: 217 33% 14%;
+    --card-border: 215 28% 25%;
+    --orange-glow: 30 100% 50%;
+    --pipeline-line: 30 80% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-orange {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(30 100% 50%), hsl(25 100% 60%));
+  }
+
+  .hero-gradient {
+    background: linear-gradient(180deg, hsl(222 47% 15%) 0%, hsl(222 47% 8%) 100%);
+  }
+
+  .stats-gradient {
+    background: linear-gradient(180deg, hsl(217 33% 14%) 0%, hsl(222 47% 11%) 100%);
+  }
+
+  .card-glow {
+    border: 1px solid hsl(var(--card-border));
+    background: hsl(var(--card));
+  }
+
+  .card-glow:hover {
+    border-color: hsl(30 100% 50% / 0.3);
+    box-shadow: 0 0 20px hsl(30 100% 50% / 0.08);
+  }
+
+  .pipeline-step {
+    background: linear-gradient(135deg, hsl(217 33% 17%), hsl(217 33% 14%));
+    border: 1px solid hsl(215 28% 25%);
+  }
+
+  .nav-glass {
+    background: hsl(222 47% 11% / 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid hsl(215 28% 22%);
+  }
+}
